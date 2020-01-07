@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\P001_MultipliesOf3And5\SumCalculator;
 use PHPUnit\Framework\TestCase;
 
