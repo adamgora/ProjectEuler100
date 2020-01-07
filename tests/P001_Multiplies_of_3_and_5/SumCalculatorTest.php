@@ -1,6 +1,6 @@
 <?php
 
-use App\MultipliesOf3And5\SumCalculator;
+use App\P001_MultipliesOf3And5\SumCalculator;
 use PHPUnit\Framework\TestCase;
 
 class SumCalculatorTest extends TestCase

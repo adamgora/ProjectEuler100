@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\MultipliesOf3And5;
+namespace App\P001_MultipliesOf3And5;
 
 class SumCalculator
 {
