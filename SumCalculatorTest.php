@@ -1,13 +1,11 @@
 <?php
 
-use App\MultipliesOf3And5\CalculatorInterface;
 use App\MultipliesOf3And5\SumCalculator;
 use PHPUnit\Framework\TestCase;
 
 class SumCalculatorTest extends TestCase
 {
-    /** @var CalculatorInterface  */
-    private $sumCalculator;
+    private SumCalculator $sumCalculator;
 
     protected function setUp(): void
     {

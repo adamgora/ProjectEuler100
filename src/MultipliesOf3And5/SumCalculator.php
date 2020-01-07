@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\MultipliesOf3And5;
 
-class SumCalculator implements CalculatorInterface
+class SumCalculator
 {
     public function sum(int $firstNumber, int $secondNumber, int $max): int
     {
