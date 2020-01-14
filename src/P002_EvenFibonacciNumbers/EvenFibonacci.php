@@ -15,7 +15,7 @@ class EvenFibonacci
         for ($i = 0; $i < $termsCount; ++$i) {
             $fibonacciNumber = $prev + $next;
 
-            if($fibonacciNumber % 2 === 0) {
+            if ($fibonacciNumber % 2 === 0) {
                 $sum += $fibonacciNumber;
             }
 
