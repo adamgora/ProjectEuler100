@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\P003_LargestPrimeFactor\LargestPrimeFactor;
 use PHPUnit\Framework\TestCase;
 

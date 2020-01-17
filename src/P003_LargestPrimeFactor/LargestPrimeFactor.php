@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\P003_LargestPrimeFactor;
 
 class LargestPrimeFactor
@@ -7,6 +9,7 @@ class LargestPrimeFactor
     public function get(int $number): int
     {
         $primeFactors = $this->getPrimeFactorization($number);
+
         return max($primeFactors);
     }
 
