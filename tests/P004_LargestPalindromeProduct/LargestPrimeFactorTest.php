@@ -23,7 +23,7 @@ class LargestPalindromeProductTest extends TestCase
      * @param int $expectedResult
      * @dataProvider cases
      */
-    public function testGet(int $testNumber, int $expectedResult): void
+    public function testCalculate(int $testNumber, int $expectedResult): void
     {
         $this->assertEquals($expectedResult, $this->largestPalindromeProduct->calculate($testNumber));
     }
