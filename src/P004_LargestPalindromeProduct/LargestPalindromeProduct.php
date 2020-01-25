@@ -30,6 +30,8 @@ class LargestPalindromeProduct
                 return $palindrome;
             }
         }
+
+        return 0;
     }
 
     /**
