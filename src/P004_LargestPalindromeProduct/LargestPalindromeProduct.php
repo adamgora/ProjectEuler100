@@ -4,25 +4,28 @@ namespace App\P004_LargestPalindromeProduct;
 
 class LargestPalindromeProduct
 {
+    private int $min = 0;
+    private int $max = 0;
+
     public function calculate(int $howManyDigitsInFactors): int
     {
-        $min = 10 ** ($howManyDigitsInFactors - 1);
-        $max = 10 ** $howManyDigitsInFactors - 1;
-        $palindromeNumbers = $this->getPalindromeNumbers($min, $max);
+        $this->min = 10 ** ($howManyDigitsInFactors - 1);
+        $this->max = 10 ** $howManyDigitsInFactors - 1;
+        $palindromeNumbers = $this->getPalindromeNumbers();
 
         for ($j = count($palindromeNumbers) - 1; $j > 0; --$j) {
-            for ($i = $max; $i > $min; --$i) {
-                if ($palindromeNumbers[$j] % $i === 0 && $palindromeNumbers[$j] / $i <= $max) {
+            for ($i = $this->max; $i > $this->min; --$i) {
+                if ($palindromeNumbers[$j] % $i === 0 && $palindromeNumbers[$j] / $i <= $this->max) {
                     return $palindromeNumbers[$j];
                 }
             }
         }
     }
 
-    private function getPalindromeNumbers(int $min, int $max): array
+    private function getPalindromeNumbers(): array
     {
         return array_map(static function (int $item) {
             return (int)($item . strrev($item));
-        }, range($min, $max, 1));
+        }, range($this->min, $this->max, 1));
     }
 }
