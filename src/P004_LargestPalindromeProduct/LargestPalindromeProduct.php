@@ -8,6 +8,10 @@ class LargestPalindromeProduct
     private int $max;
     private array $palindromeNumbers;
 
+    /**
+     * LargestPalindromeProduct constructor.
+     * @param int $howManyDigitsInFactors
+     */
     public function __construct(int $howManyDigitsInFactors)
     {
         $this->min = 10 ** ($howManyDigitsInFactors - 1);
@@ -15,15 +19,22 @@ class LargestPalindromeProduct
         $this->palindromeNumbers = $this->getPalindromeNumbers();
     }
 
+    /**
+     * @return int
+     */
     public function calculate(): int
     {
-        for ($j = count($this->palindromeNumbers) - 1; $j > 0; --$j) {
-            if ($this->checkPalindromeUsingDivision($this->palindromeNumbers[$j])) {
-                return $this->palindromeNumbers[$j];
+        for ($i = count($this->palindromeNumbers) - 1; $i > 0; --$i) {
+            $palindrome = $this->palindromeNumbers[$i];
+            if ($this->checkPalindromeUsingDivision($palindrome)) {
+                return $palindrome;
             }
         }
     }
 
+    /**
+     * @return array
+     */
     private function getPalindromeNumbers(): array
     {
         return array_map(static function (int $item) {
