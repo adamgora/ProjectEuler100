@@ -18,10 +18,8 @@ class LargestPalindromeProduct
     public function calculate(): int
     {
         for ($j = count($this->palindromeNumbers) - 1; $j > 0; --$j) {
-            for ($i = $this->max; $i > $this->min; --$i) {
-                if ($this->palindromeNumbers[$j] % $i === 0 && $this->palindromeNumbers[$j] / $i <= $this->max) {
-                    return $this->palindromeNumbers[$j];
-                }
+            if ($this->checkPalindromeUsingDivision($this->palindromeNumbers[$j])) {
+                return $this->palindromeNumbers[$j];
             }
         }
     }
@@ -31,5 +29,20 @@ class LargestPalindromeProduct
         return array_map(static function (int $item) {
             return (int)($item . strrev($item));
         }, range($this->min, $this->max, 1));
+    }
+
+    /**
+     * @param int $palindromeNumber
+     * @return bool
+     */
+    private function checkPalindromeUsingDivision(int $palindromeNumber): bool
+    {
+        for ($i = $this->max; $i > $this->min; --$i) {
+            if ($palindromeNumber % $i === 0 && $palindromeNumber / $i <= $this->max) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
