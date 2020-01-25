@@ -4,13 +4,17 @@ namespace App\P004_LargestPalindromeProduct;
 
 class LargestPalindromeProduct
 {
-    private int $min = 0;
-    private int $max = 0;
+    private int $min;
+    private int $max;
 
-    public function calculate(int $howManyDigitsInFactors): int
+    public function __construct(int $howManyDigitsInFactors)
     {
         $this->min = 10 ** ($howManyDigitsInFactors - 1);
         $this->max = 10 ** $howManyDigitsInFactors - 1;
+    }
+
+    public function calculate(): int
+    {
         $palindromeNumbers = $this->getPalindromeNumbers();
 
         for ($j = count($palindromeNumbers) - 1; $j > 0; --$j) {

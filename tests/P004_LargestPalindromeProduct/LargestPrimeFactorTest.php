@@ -7,15 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class LargestPalindromeProductTest extends TestCase
 {
-    /**
-     * @var LargestPalindromeProduct
-     */
-    private LargestPalindromeProduct $largestPalindromeProduct;
-
     protected function setUp(): void
     {
         parent::setUp();
-        $this->largestPalindromeProduct = new LargestPalindromeProduct();
     }
 
     /**
@@ -25,7 +19,8 @@ class LargestPalindromeProductTest extends TestCase
      */
     public function testCalculate(int $testNumber, int $expectedResult): void
     {
-        $this->assertEquals($expectedResult, $this->largestPalindromeProduct->calculate($testNumber));
+        $largestPalindromeProduct = new LargestPalindromeProduct($testNumber);
+        $this->assertEquals($expectedResult, $largestPalindromeProduct->calculate());
     }
 
     public function cases(): array
