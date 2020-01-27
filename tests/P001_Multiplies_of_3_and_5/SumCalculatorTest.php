@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-use App\P001_MultipliesOf3And5\EvenFibonacci;
+use App\P001_MultipliesOf3And5\SumCalculator;
 use PHPUnit\Framework\TestCase;
 
 class SumCalculatorTest extends TestCase
 {
-    private EvenFibonacci $sumCalculator;
+    private SumCalculator $sumCalculator;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->sumCalculator = new EvenFibonacci();
+        $this->sumCalculator = new SumCalculator();
     }
 
     /** @dataProvider cases
