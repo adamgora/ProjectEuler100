@@ -10,3 +10,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 2. [Even Fibonacci Numbers](https://github.com/adamgora/ProjectEuler100/tree/master/src/P002_EvenFibonacciNumbers)
 3. [Largest Prime Factor](https://github.com/adamgora/ProjectEuler100/tree/master/src/P003_LargestPrimeFactor)
 4. [Largest Palindrome Product](https://github.com/adamgora/ProjectEuler100/tree/master/src/P004_LargestPalindromeProduct)
+5. [Smallest Multiple](https://github.com/adamgora/ProjectEuler100/tree/master/src/P005_SmallestMultiple)
