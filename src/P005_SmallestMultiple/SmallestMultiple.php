@@ -7,29 +7,67 @@ use App\Utilities\PrimeFactorizer;
 
 class SmallestMultiple
 {
+    private array $maxFactorizations;
+
+    public function __construct()
+    {
+        $this->setMaxFactorizations([]);
+    }
+
     public function calculate(int $max): int
     {
-        $maxFactorizations = [];
-
         foreach (range(2, $max) as $number) {
-            $primeFactorization = PrimeFactorizer::factorize($number);
-            $values = array_count_values($primeFactorization);
-
-            foreach ($values as $base => $exponent) {
-                if (!isset($maxFactorizations[$base])) {
-                    $maxFactorizations[$base] = $exponent;
-                } elseif ($exponent > $maxFactorizations[$base]) {
-                    $maxFactorizations[$base] = $exponent;
-                }
-            }
+            $factorsAndExponents = array_count_values(PrimeFactorizer::factorize($number));
+            $this->updateMaxFactorizations($factorsAndExponents);
         }
 
+        return $this->multiplyMaxFactorizations();
+    }
+
+    /**
+     * @return int
+     */
+    private function multiplyMaxFactorizations(): int
+    {
         $result = 1;
-        foreach ($maxFactorizations as $base => $exponent) {
+        foreach ($this->getMaxFactorizations() as $base => $exponent) {
             $result *= $base ** $exponent;
         }
 
         return $result;
+    }
 
+    /**
+     * @return array
+     */
+    public function getMaxFactorizations(): array
+    {
+        return $this->maxFactorizations;
+    }
+
+    /**
+     * @param array $maxFactorizations
+     */
+    public function setMaxFactorizations(array $maxFactorizations): void
+    {
+        $this->maxFactorizations = $maxFactorizations;
+    }
+
+    /**
+     * @param array $factorsAndExponents
+     */
+    private function updateMaxFactorizations(array $factorsAndExponents): void
+    {
+        $maxFactorizations = $this->getMaxFactorizations();
+
+        foreach ($factorsAndExponents as $base => $exponent) {
+            if (!isset($maxFactorizations[$base])) {
+                $maxFactorizations[$base] = $exponent;
+            } elseif ($exponent > $maxFactorizations[$base]) {
+                $maxFactorizations[$base] = $exponent;
+            }
+        }
+
+        $this->setMaxFactorizations($maxFactorizations);
     }
 }
