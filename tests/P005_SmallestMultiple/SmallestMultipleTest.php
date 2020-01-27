@@ -15,6 +15,11 @@ class SmallestMultipleTest extends TestCase
         $this->smallestMultiple = new SmallestMultiple();
     }
 
+    /**
+     * @param int $testNumber
+     * @param int $expectedResult
+     * @dataProvider cases
+     */
     public function testCalculate(int $testNumber, int $expectedResult): void
     {
         $this->assertEquals($expectedResult, $this->smallestMultiple->calculate($testNumber));
