@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\P005_SmallestMultiple;
 
+use App\Utilities\PrimeFactorizer;
+
 class SmallestMultiple
 {
     public function calculate(int $max): int
@@ -10,7 +12,7 @@ class SmallestMultiple
         $maxFactorizations = [];
 
         foreach (range(2, $max) as $number) {
-            $primeFactorization = $this->getPrimeFactorization($number);
+            $primeFactorization = PrimeFactorizer::factorize($number);
             $values = array_count_values($primeFactorization);
 
             foreach ($values as $base => $exponent) {
@@ -29,16 +31,5 @@ class SmallestMultiple
 
         return $result;
 
-    }
-
-    private function getPrimeFactorization(int $number): array
-    {
-        for ($i = 2; $i < $number; ++$i) {
-            if ($number % $i === 0) {
-                return array_merge([$i], $this->getPrimeFactorization($number / $i));
-            }
-        }
-
-        return [$i];
     }
 }
