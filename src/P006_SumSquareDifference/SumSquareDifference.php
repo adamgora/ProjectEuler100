@@ -6,7 +6,7 @@ namespace App\P006_SumSquareDifference;
 
 class SumSquareDifference
 {
-    public function sum(int $limit): int
+    public function get(int $limit): int
     {
 
     }
