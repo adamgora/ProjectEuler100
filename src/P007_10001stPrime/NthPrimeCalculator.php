@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P007_10001stPrime;
@@ -12,13 +13,11 @@ class NthPrimeCalculator
         $currentNumber = $this->primes ? $this->getLastPrime() : 2;
 
         while ($this->countPrimes() < $num) {
-
-            if($this->isPrime($currentNumber)) {
+            if ($this->isPrime($currentNumber)) {
                 $this->pushPrime($currentNumber);
             }
 
             $currentNumber += $currentNumber < 3 ? 1 : 2;
-
         }
 
         return $this->getLastPrime();
@@ -36,13 +35,13 @@ class NthPrimeCalculator
 
     private function countPrimes(): int
     {
-        return sizeof($this->primes);
+        return count($this->primes);
     }
 
     private function isPrime(int $num): bool
     {
         foreach ($this->primes as $prime) {
-            if($num % $prime === 0) {
+            if ($num % $prime === 0) {
                 return false;
             }
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\P004_LargestPalindromeProduct;
 
 class LargestPalindromeProduct
@@ -10,6 +12,7 @@ class LargestPalindromeProduct
 
     /**
      * LargestPalindromeProduct constructor.
+     *
      * @param int $howManyDigitsInFactors
      */
     public function __construct(int $howManyDigitsInFactors)
@@ -40,12 +43,13 @@ class LargestPalindromeProduct
     private function getPalindromeNumbers(): array
     {
         return array_map(static function (int $item) {
-            return (int)($item . strrev($item));
+            return (int) ($item . strrev($item));
         }, range($this->min, $this->max, 1));
     }
 
     /**
      * @param int $palindromeNumber
+     *
      * @return bool
      */
     private function checkPalindromeUsingDivision(int $palindromeNumber): bool
