@@ -11,4 +11,5 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 3. [Largest Prime Factor](https://github.com/adamgora/ProjectEuler100/tree/master/src/P003_LargestPrimeFactor)
 4. [Largest Palindrome Product](https://github.com/adamgora/ProjectEuler100/tree/master/src/P004_LargestPalindromeProduct)
 5. [Smallest Multiple](https://github.com/adamgora/ProjectEuler100/tree/master/src/P005_SmallestMultiple)
-5. [Sum Square Difference](https://github.com/adamgora/ProjectEuler100/tree/master/src/P006_SumSquareDifference)
+6. [Sum Square Difference](https://github.com/adamgora/ProjectEuler100/tree/master/src/P006_SumSquareDifference)
+7. [10001st Prime](https://github.com/adamgora/ProjectEuler100/tree/master/src/P007_10001stPrime)
