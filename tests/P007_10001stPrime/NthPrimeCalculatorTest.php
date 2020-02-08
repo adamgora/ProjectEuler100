@@ -17,6 +17,11 @@ class NthPrimeCalculatorTest extends TestCase
         $this->primeCalculator = new NthPrimeCalculator();
     }
 
+    /**
+     * @param int $testNumber
+     * @param int $expectedResult
+     * @dataProvider cases
+     */
     public function testCalculate(int $testNumber, int $expectedResult): void
     {
         $this->assertEquals($expectedResult, $this->primeCalculator->calculate($testNumber));
