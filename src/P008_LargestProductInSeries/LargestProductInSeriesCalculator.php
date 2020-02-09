@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P008_LargestProductInSeries;
@@ -13,10 +14,10 @@ class LargestProductInSeriesCalculator
 
         while ($currentIndex < $maxIndex) {
             $product = array_product(array_slice($series, $currentIndex, $digits));
-            if($product > $result) {
+            if ($product > $result) {
                 $result = $product;
             }
-            $currentIndex++;
+            ++$currentIndex;
         }
 
         return $result;
