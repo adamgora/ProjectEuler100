@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\P009_SpecialPythagoreanTriplet\Exceptions\TripletNotFoundException;
 use App\P009_SpecialPythagoreanTriplet\TripletFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -21,6 +22,7 @@ class TripletFactoryTest extends TestCase
      * @param int $sumOfTriplets
      * @param $expectedProduct
      * @dataProvider cases
+     * @throws TripletNotFoundException
      */
     public function testMake(int $sumOfTriplets, $expectedProduct): void
     {
@@ -31,6 +33,15 @@ class TripletFactoryTest extends TestCase
         } else {
             $this->assertEquals($triplet->getProduct(), $expectedProduct);
         }
+    }
+
+    /**
+     * @throws TripletNotFoundException
+     */
+    public function testIfMakeThrowsExceptionIfNoTripletFound(): void
+    {
+        $this->expectException(TripletNotFoundException::class);
+        $this->factory->make(2);
     }
 
     /**
