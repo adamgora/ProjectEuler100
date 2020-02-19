@@ -11,6 +11,7 @@ class NthPrimeCalculator
     public function calculate(int $num): int
     {
         $primes = (new PrimesGenerator())->generate($num);
+
         return $primes[count($primes) - 1];
     }
 }
