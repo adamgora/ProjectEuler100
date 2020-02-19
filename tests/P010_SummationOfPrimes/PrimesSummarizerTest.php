@@ -33,7 +33,6 @@ class PrimesSummarizerTest extends TestCase
             [17, 41],
             [2001, 277050],
             [140759, 873608362],
-            [2000000, 142913828922],
         ];
     }
 }

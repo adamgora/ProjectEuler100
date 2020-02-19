@@ -25,26 +25,17 @@ class PrimesGenerator
     public function generateUpTo(int $upTo): array
     {
         $this->resetCurrent();
-        return [];
-    }
 
-    public function calculate(int $num): int
-    {
-        while ($this->countPrimes() < $num) {
-
+        while ($this->current < $upTo) {
+            $this->handleCurrentNumber();
         }
 
-        return $this->getLastPrime();
+        return $this->primes;
     }
 
     private function pushPrime(int $prime): void
     {
         $this->primes[] = $prime;
-    }
-
-    private function getLastPrime(): int
-    {
-        return $this->primes[$this->countPrimes() - 1];
     }
 
     private function countPrimes(): int
