@@ -33,14 +33,13 @@ class PrimesGenerator
         return $this->primes;
     }
 
-    private function pushPrime(int $prime): void
+    private function handleCurrentNumber(): void
     {
-        $this->primes[] = $prime;
-    }
+        if ($this->isPrime($this->current)) {
+            $this->pushPrime($this->current);
+        }
 
-    private function countPrimes(): int
-    {
-        return count($this->primes);
+        $this->incrementCurrent();
     }
 
     private function isPrime(int $num): bool
@@ -54,22 +53,23 @@ class PrimesGenerator
         return true;
     }
 
+    private function incrementCurrent(): void
+    {
+        $this->current += $this->current < 3 ? 1 : 2;
+    }
+
     private function resetCurrent(): void
     {
         $this->current = self::BASE_PRIME;
     }
 
-    private function handleCurrentNumber(): void
+    private function pushPrime(int $prime): void
     {
-        if ($this->isPrime($this->current)) {
-            $this->pushPrime($this->current);
-        }
-
-        $this->incrementCurrent();
+        $this->primes[] = $prime;
     }
 
-    private function incrementCurrent(): void
+    private function countPrimes(): int
     {
-        $this->current += $this->current < 3 ? 1 : 2;
+        return count($this->primes);
     }
 }
