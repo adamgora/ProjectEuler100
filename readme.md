@@ -15,3 +15,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 7. [10001st Prime](https://github.com/adamgora/ProjectEuler100/tree/master/src/P007_10001stPrime)
 8. [Largest Product In A Series](https://github.com/adamgora/ProjectEuler100/tree/master/src/P008_LargestProductInSeries)
 9. [Special Pythagorean Triplet](https://github.com/adamgora/ProjectEuler100/tree/master/src/P009_SpecialPythagoreanTriplet)
+10. [Summation Of Primes](https://github.com/adamgora/ProjectEuler100/tree/master/src/P010_SummationOfPrimes)
