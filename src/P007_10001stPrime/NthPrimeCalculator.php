@@ -22,6 +22,7 @@ class NthPrimeCalculator
      * Approximate nth prime number is calculated using Prime Number Theorem.
      *
      * @param int $num
+     *
      * @return int
      */
     private function setMaxApproximate(int $num): int
@@ -32,10 +33,11 @@ class NthPrimeCalculator
     /**
      * @param array $primes
      * @param int $num
+     *
      * @return int
      */
     private function returnNthPrime(array $primes, int $num): int
     {
-        return $primes[$num -1];
+        return $primes[$num - 1];
     }
 }

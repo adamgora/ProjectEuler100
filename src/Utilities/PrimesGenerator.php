@@ -17,6 +17,7 @@ class PrimesGenerator
 
         $this->setNumbersArray();
         $this->sieveForPrimes();
+
         return $this->numbers;
     }
 
@@ -32,7 +33,7 @@ class PrimesGenerator
 
     private function sieveForPrimes(): void
     {
-        for ($i = 2, $iMax = sqrt($this->max); $i < $iMax; $i++) {
+        for ($i = 2, $iMax = sqrt($this->max); $i < $iMax; ++$i) {
             if ($this->numbers[$i]) {
                 $this->setMultipliesOfPrimeAsFalse($i);
             }
@@ -54,7 +55,7 @@ class PrimesGenerator
     private function filterNumbers(): void
     {
         $this->numbers = array_keys(
-            array_filter($this->numbers, fn(bool $element) => $element)
+            array_filter($this->numbers, fn (bool $element) => $element)
         );
     }
 }

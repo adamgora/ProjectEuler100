@@ -44,6 +44,7 @@ class LargestPalindromeProduct
     {
         return array_map(static function (int $item) {
             $stringItem = (string) $item;
+
             return (int) ($stringItem . strrev($stringItem));
         }, range($this->min, $this->max, 1));
     }

@@ -12,13 +12,14 @@ class PrimesSummarizer
     {
         $primesGenerator = new PrimesGenerator();
         $primes = $primesGenerator->generate($upTo - 1);
-        return $this->filterAndSum($primes);
 
+        return $this->filterAndSum($primes);
     }
 
     private function filterAndSum(array $primes): int
     {
         array_pop($primes);
+
         return array_sum($primes);
     }
 }
