@@ -8,69 +8,53 @@ class PrimesGenerator
 {
     private const BASE_PRIME = 2;
 
-    private array $primes = [];
+    private array $numbers = [];
+    private int $max;
 
-    private int $current;
-
-    public function generate(int $howMany): array
+    public function generate(int $upTo): array
     {
-        $this->resetCurrent();
+        $this->setMax($upTo);
 
-        while ($this->countPrimes() < $howMany) {
-            $this->handleCurrentNumber();
-        }
-
-        return $this->primes;
+        $this->setNumbersArray();
+        $this->sieveForPrimes();
+        return $this->numbers;
     }
 
-    public function generateUpTo(int $upTo): array
+    private function setNumbersArray(): void
     {
-        $this->resetCurrent();
-
-        while ($this->current < $upTo) {
-            $this->handleCurrentNumber();
-        }
-
-        return $this->primes;
+        $this->numbers = array_fill(self::BASE_PRIME, $this->max, true);
     }
 
-    private function handleCurrentNumber(): void
+    private function setMax(int $max): void
     {
-        if ($this->isPrime($this->current)) {
-            $this->pushPrime($this->current);
-        }
-
-        $this->incrementCurrent();
+        $this->max = $max;
     }
 
-    private function isPrime(int $num): bool
+    private function sieveForPrimes(): void
     {
-        foreach ($this->primes as $prime) {
-            if ($num % $prime === 0) {
-                return false;
+        for ($i = 2, $iMax = sqrt($this->max); $i < $iMax; $i++) {
+            if ($this->numbers[$i]) {
+                $this->setMultipliesOfPrimeAsFalse($i);
             }
         }
 
-        return true;
+        $this->filterNumbers();
     }
 
-    private function incrementCurrent(): void
+    /**
+     * @param int $prime
+     */
+    private function setMultipliesOfPrimeAsFalse(int $prime): void
     {
-        $this->current += $this->current < 3 ? 1 : 2;
+        for ($i = $prime ** 2, $j = 1; $i <= $this->max; $i = $prime ** 2 + $j * $prime, $j++) {
+            $this->numbers[$i] = false;
+        }
     }
 
-    private function resetCurrent(): void
+    private function filterNumbers(): void
     {
-        $this->current = self::BASE_PRIME;
-    }
-
-    private function pushPrime(int $prime): void
-    {
-        $this->primes[] = $prime;
-    }
-
-    private function countPrimes(): int
-    {
-        return count($this->primes);
+        $this->numbers = array_keys(
+            array_filter($this->numbers, fn(bool $element) => $element)
+        );
     }
 }
