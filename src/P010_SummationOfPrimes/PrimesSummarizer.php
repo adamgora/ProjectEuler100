@@ -4,58 +4,21 @@ declare(strict_types=1);
 
 namespace App\P010_SummationOfPrimes;
 
+use App\Utilities\PrimesGenerator;
+
 class PrimesSummarizer
 {
-    private array $numbers = [];
-    private int $max;
-
     public function summarize(int $upTo): int
     {
-        $this->setMax($upTo - 1);
-        $this->setNumbersArray();
-        $this->sieveForPrimes();
-
-        return $this->filterAndSum();
+        $primesGenerator = new PrimesGenerator();
+        $primes = $primesGenerator->generate($upTo - 1);
+        return $this->filterAndSum($primes);
 
     }
 
-    private function setNumbersArray(): void
+    private function filterAndSum(array $primes): int
     {
-        $this->numbers = array_fill(2, $this->max, true);
-    }
-
-    private function setMax(int $max): void
-    {
-        $this->max = $max;
-    }
-
-    private function sieveForPrimes(): void
-    {
-        for ($i = 2, $iMax = sqrt($this->max); $i < $iMax; $i++) {
-            if ($this->numbers[$i]) {
-                $this->setMultipliesOfPrimeAsFalse($i);
-            }
-        }
-    }
-
-    /**
-     * @param int $prime
-     */
-    private function setMultipliesOfPrimeAsFalse(int $prime): void
-    {
-        for ($i = $prime ** 2, $j = 1; $i <= $this->max; $i = $prime ** 2 + $j * $prime, $j++) {
-            $this->numbers[$i] = false;
-        }
-    }
-
-    private function filterAndSum(): int
-    {
-        array_pop($this->numbers);
-
-        return array_sum(
-            array_keys(
-                array_filter($this->numbers, fn(bool $element) => $element)
-            )
-        );
+        array_pop($primes);
+        return array_sum($primes);
     }
 }
