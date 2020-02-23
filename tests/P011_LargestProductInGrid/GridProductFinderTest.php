@@ -22,7 +22,7 @@ class GridProductFinderTest extends TestCase
      */
     public function testFind(array $grid, int $expectedResult)
     {
-        $this->assertEquals($expectedResult, $this->finder->find($grid));
+        $this->assertEquals($expectedResult, $this->finder->find($grid, 4));
     }
 
     public function cases(): array

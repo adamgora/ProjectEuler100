@@ -6,7 +6,7 @@ namespace App\P011_LargestProductInGrid;
 
 class GridProductFinder
 {
-    public function find(array $grid): int
+    public function find(array $grid, int $numbers): int
     {
         return 0;
     }
