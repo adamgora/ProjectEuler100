@@ -12,60 +12,50 @@ class GridProductFinder
 
     private int $colLength;
 
+    private array $grid;
+
     public function find(array $grid, int $numbers): int
     {
+        $this->grid = $grid;
         $this->offset = $numbers;
-        $this->rowLength = count($grid) - 1;
+        $this->rowLength = count($grid);
         $this->colLength = count($grid[0]);
 
-        $this->findMaxProductInRows($grid);
-
-        $flatArray = array_merge(...$grid);
-
-        $this->findMaxProductInColumns($flatArray);
-
-        // find product in one diagonal
-
-//        for ($currentRowIndex = 0; $currentRowIndex + $offset < $rows + 1; $currentRowIndex++) {
-//            for ($currentColumnIndex = 0; $currentColumnIndex + $offset < $cols + 1; $currentColumnIndex++) {
-//                $diagonal = 1;
-//                foreach (range(0, $offset - 1) as $baseIndex) {
-//                    $diagonal *= $grid[$currentRowIndex + $baseIndex][$currentColumnIndex + $baseIndex];
-//                }
-//                if($diagonal > $product) {
-//                    $product = $diagonal;
-//                }
-//            }
-//        }
+        for ($rowIndex = 0; $rowIndex <= $this->rowLength - 1; $rowIndex++) {
+            for ($colIndex = 0, $colLimit = $this->colLength - 1; $colIndex <= $colLimit; $colIndex++) {
+                //$this->getProductInRow($rowIndex, $colIndex);
+                $this->getProductInColumn($rowIndex, $colIndex);
+            }
+        }
 
         return 0;
     }
 
-    private function findMaxProductInRows(array $array)
+    private function getProductInRow(int $rowIndex, int $colIndex): int
     {
-        echo "Finding elements in each row:\n";
-        for ($rowCount = 0; $rowCount <= $this->rowLength; $rowCount++) {
-            for ($currentIndex = 0; $currentIndex + $this->offset <= $this->colLength; $currentIndex++) {
-                echo implode(', ', array_slice($array[$rowCount], $currentIndex, $this->offset)) . "\n";
-            }
+        if ($colIndex + $this->offset > $this->rowLength) {
+            return 0;
         }
-        echo "---------------\n";
+
+        echo "================\n";
+        echo "Searching row product for number on index $rowIndex, $colIndex\n";
+        echo "Number are " . implode(', ', array_slice($this->grid[$rowIndex], $colIndex, $this->offset)) . "\n";
+
+        return array_product(array_slice($this->grid[$rowIndex], $colIndex, $this->offset));
     }
 
-    private function findMaxProductInColumns(array $array)
+    private function getProductInColumn(int $rowIndex, int $colIndex): int
     {
-        $lastIndex = count($array) - ($this->offset * ($this->colLength - 1));
-
-        echo "Finding elements in each row:\n";
-
-        for ($baseIndex = 0; $baseIndex <= $lastIndex; $baseIndex++) {
-            $collect = [];
-            for ($size = 0; $size < $this->offset; $size++) {
-                $collect[] = $array[$baseIndex + ($size * $this->colLength)];
-            }
-            echo implode(', ', $collect) . "\n";
+        if ($rowIndex + $this->offset > $this->rowLength) {
+            return 0;
         }
 
-        echo "---------------\n";
+        echo "================\n";
+        echo "Searching columns product for number on index $rowIndex, $colIndex\n";
+        echo "Numbers are " . implode(', ', array_column(array_slice($this->grid, $rowIndex, $this->offset), $colIndex)) . "\n";
+
+        return array_product(
+            array_column(array_slice($this->grid, $rowIndex, $this->offset), $colIndex)
+        );
     }
 }
