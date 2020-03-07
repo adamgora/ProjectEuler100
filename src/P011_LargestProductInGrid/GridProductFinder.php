@@ -43,7 +43,7 @@ class GridProductFinder
 
     private function getProductInRow(int $rowIndex, int $colIndex): int
     {
-        if ($colIndex + $this->offset > $this->rowLength) {
+        if ($this->cannotSearchInRow($colIndex)) {
             return 0;
         }
 
@@ -52,7 +52,7 @@ class GridProductFinder
 
     private function getProductInColumn(int $rowIndex, int $colIndex): int
     {
-        if ($rowIndex + $this->offset > $this->rowLength) {
+        if ($this->cannotSearchInColumn($rowIndex)) {
             return 0;
         }
 
@@ -63,7 +63,7 @@ class GridProductFinder
 
     private function getProductInRightDiagonal($rowIndex, $colIndex)
     {
-        if ($colIndex + $this->offset > $this->colLength || $rowIndex + $this->offset > $this->rowLength) {
+        if ($this->cannotSearchInRightDiagonal($rowIndex, $colIndex)) {
             return 0;
         }
 
@@ -78,7 +78,7 @@ class GridProductFinder
 
     private function getProductInLeftDiagonal($rowIndex, $colIndex)
     {
-        if ($colIndex < $this->offset - 1 || $rowIndex + $this->offset > $this->rowLength) {
+        if ($this->cannotSearchInLeftDiagonal($rowIndex, $colIndex)) {
             return 0;
         }
 
@@ -89,5 +89,43 @@ class GridProductFinder
         }
 
         return $product;
+    }
+
+    /**
+     * @param int $colIndex
+     * @return bool
+     */
+    private function cannotSearchInRow(int $colIndex): bool
+    {
+        return $colIndex + $this->offset > $this->rowLength;
+    }
+
+    /**
+     * @param int $rowIndex
+     * @return bool
+     */
+    private function cannotSearchInColumn(int $rowIndex): bool
+    {
+        return $rowIndex + $this->offset > $this->rowLength;
+    }
+
+    /**
+     * @param $rowIndex
+     * @param $colIndex
+     * @return bool
+     */
+    private function cannotSearchInRightDiagonal($rowIndex, $colIndex): bool
+    {
+        return $colIndex + $this->offset > $this->colLength || $this->cannotSearchInColumn($rowIndex);
+    }
+
+    /**
+     * @param $rowIndex
+     * @param $colIndex
+     * @return bool
+     */
+    private function cannotSearchInLeftDiagonal($rowIndex, $colIndex): bool
+    {
+        return $colIndex < $this->offset - 1 || $this->cannotSearchInColumn($rowIndex);
     }
 }
