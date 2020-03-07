@@ -14,6 +14,11 @@ class GridProductFinder
 
     private array $grid;
 
+    /**
+     * @param array $grid
+     * @param int $numbers
+     * @return int
+     */
     public function find(array $grid, int $numbers): int
     {
         $maxProduct = 0;
@@ -25,12 +30,7 @@ class GridProductFinder
 
         for ($rowIndex = 0; $rowIndex <= $this->rowLength - 1; $rowIndex++) {
             for ($colIndex = 0, $colLimit = $this->colLength - 1; $colIndex <= $colLimit; $colIndex++) {
-                $highestProduct = max([
-                    $this->getProductInRow($rowIndex, $colIndex),
-                    $this->getProductInColumn($rowIndex, $colIndex),
-                    $this->getProductInRightDiagonal($rowIndex, $colIndex),
-                    $this->getProductInLeftDiagonal($rowIndex, $colIndex),
-                ]);
+                $highestProduct = $this->getMaxProductInAllDirections($rowIndex, $colIndex);
 
                 if($highestProduct > $maxProduct) {
                     $maxProduct = $highestProduct;
@@ -41,6 +41,27 @@ class GridProductFinder
         return $maxProduct;
     }
 
+
+    /**
+     * @param int $rowIndex
+     * @param int $colIndex
+     * @return mixed
+     */
+    private function getMaxProductInAllDirections(int $rowIndex, int $colIndex): mixed
+    {
+        return max([
+            $this->getProductInRow($rowIndex, $colIndex),
+            $this->getProductInColumn($rowIndex, $colIndex),
+            $this->getProductInRightDiagonal($rowIndex, $colIndex),
+            $this->getProductInLeftDiagonal($rowIndex, $colIndex),
+        ]);
+    }
+
+    /**
+     * @param int $rowIndex
+     * @param int $colIndex
+     * @return int
+     */
     private function getProductInRow(int $rowIndex, int $colIndex): int
     {
         if ($this->cannotSearchInRow($colIndex)) {
@@ -50,6 +71,11 @@ class GridProductFinder
         return array_product(array_slice($this->grid[$rowIndex], $colIndex, $this->offset));
     }
 
+    /**
+     * @param int $rowIndex
+     * @param int $colIndex
+     * @return int
+     */
     private function getProductInColumn(int $rowIndex, int $colIndex): int
     {
         if ($this->cannotSearchInColumn($rowIndex)) {
@@ -61,7 +87,12 @@ class GridProductFinder
         );
     }
 
-    private function getProductInRightDiagonal($rowIndex, $colIndex)
+    /**
+     * @param $rowIndex
+     * @param $colIndex
+     * @return int
+     */
+    private function getProductInRightDiagonal($rowIndex, $colIndex): int
     {
         if ($this->cannotSearchInRightDiagonal($rowIndex, $colIndex)) {
             return 0;
@@ -76,7 +107,12 @@ class GridProductFinder
         return $product;
     }
 
-    private function getProductInLeftDiagonal($rowIndex, $colIndex)
+    /**
+     * @param $rowIndex
+     * @param $colIndex
+     * @return int
+     */
+    private function getProductInLeftDiagonal($rowIndex, $colIndex): int
     {
         if ($this->cannotSearchInLeftDiagonal($rowIndex, $colIndex)) {
             return 0;
