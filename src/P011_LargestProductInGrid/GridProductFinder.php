@@ -25,7 +25,8 @@ class GridProductFinder
             for ($colIndex = 0, $colLimit = $this->colLength - 1; $colIndex <= $colLimit; $colIndex++) {
                 //$this->getProductInRow($rowIndex, $colIndex);
                 //$this->getProductInColumn($rowIndex, $colIndex);
-                $this->getProductInRightDiagonal($rowIndex, $colIndex);
+                //$this->getProductInRightDiagonal($rowIndex, $colIndex);
+                $this->getProductInLeftDiagonal($rowIndex, $colIndex);
             }
         }
 
@@ -73,6 +74,26 @@ class GridProductFinder
 
         for ($i = 0; $i < $this->offset; $i++) {
             $product[] = $this->grid[$rowIndex + $i][$colIndex + $i];
+        }
+
+        echo "Numbers are " . implode(', ', $product) . "\n";
+
+        return array_product($product);
+    }
+
+    private function getProductInLeftDiagonal($rowIndex, $colIndex)
+    {
+        if ($colIndex < $this->offset - 1 || $rowIndex + $this->offset > $this->rowLength) {
+            return 0;
+        }
+
+        echo "================\n";
+        echo "Searching right diagonal product for number on index $rowIndex, $colIndex\n";
+
+        $product = [];
+
+        for ($i = 0; $i < $this->offset; $i++) {
+            $product[] = $this->grid[$rowIndex + $i][$colIndex - $i];
         }
 
         echo "Numbers are " . implode(', ', $product) . "\n";
