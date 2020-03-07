@@ -45,9 +45,9 @@ class GridProductFinder
     /**
      * @param int $rowIndex
      * @param int $colIndex
-     * @return mixed
+     * @return int
      */
-    private function getMaxProductInAllDirections(int $rowIndex, int $colIndex): mixed
+    private function getMaxProductInAllDirections(int $rowIndex, int $colIndex): int
     {
         return max([
             $this->getProductInRow($rowIndex, $colIndex),
