@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P012_HighlyDivisibleTriangularNumber;
@@ -20,13 +21,13 @@ class NumberSearch
 
             $divisorsCount = array_reduce(array_count_values($primes), static function ($carry, $item) {
                 $carry *= ($item + 1);
+
                 return $carry;
             }, 1);
 
-            $currentNumber++;
+            ++$currentNumber;
         }
 
         return $currentTriangularNumber;
-
     }
 }
