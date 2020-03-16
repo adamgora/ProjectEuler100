@@ -17,3 +17,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 9. [Special Pythagorean Triplet](https://github.com/adamgora/ProjectEuler100/tree/master/src/P009_SpecialPythagoreanTriplet)
 10. [Summation Of Primes](https://github.com/adamgora/ProjectEuler100/tree/master/src/P010_SummationOfPrimes)
 11. [Largest product in a grid](https://github.com/adamgora/ProjectEuler100/tree/master/src/P011_LargestProductInGrid)
+12. [Highly divisible triangular number](https://github.com/adamgora/ProjectEuler100/tree/master/src/P012_HighlyDivisibleTriangularNumber)
