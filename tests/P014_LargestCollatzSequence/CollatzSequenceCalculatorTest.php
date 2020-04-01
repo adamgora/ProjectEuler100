@@ -16,8 +16,8 @@ class CollatzSequenceCalculatorTest extends TestCase
     }
 
     /**
-     * @param array $numbers
-     * @param string $expectedResult
+     * @param int $limit
+     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testSum(int $limit, int $expectedResult): void
