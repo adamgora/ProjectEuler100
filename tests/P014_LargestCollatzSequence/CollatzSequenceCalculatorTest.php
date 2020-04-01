@@ -20,7 +20,7 @@ class CollatzSequenceCalculatorTest extends TestCase
      * @param int $expectedResult
      * @dataProvider cases
      */
-    public function testSum(int $limit, int $expectedResult): void
+    public function testCalculate(int $limit, int $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
