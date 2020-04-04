@@ -14,7 +14,6 @@ class CollatzSequenceCalculator
         $numbers = array_fill(1, $limit, true);
 
         for ($i = $limit; $i > 1; --$i) {
-
             if (!$numbers[$i]) {
                 continue;
             }
