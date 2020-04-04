@@ -26,5 +26,7 @@ jobs:
         run: vendor/bin/ecs check tests src  --config easy-coding-standard.yaml
 
   unit-tests:
+    runs-on: ubuntu-latest
+
     steps:
       - uses: php-actions/phpunit@v1
