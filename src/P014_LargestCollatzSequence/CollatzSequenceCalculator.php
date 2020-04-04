@@ -10,8 +10,15 @@ class CollatzSequenceCalculator
     {
         $currentMaxLength = 0;
         $currentMaxNumber = 0;
+        $limit -= 1;
+        $numbers = array_fill(1, $limit, true);
 
-        for ($i = $limit - 1; $i > 1; --$i) {
+        for ($i = $limit; $i > 1; --$i) {
+
+            if (!$numbers[$i]) {
+                continue;
+            }
+
             $j = $i;
             $sequenceLength = 0;
 
@@ -21,6 +28,7 @@ class CollatzSequenceCalculator
                 } else {
                     $j = (3 * $j) + 1;
                 }
+                $numbers[$j] = false;
                 ++$sequenceLength;
             }
 
