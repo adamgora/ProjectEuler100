@@ -18,4 +18,5 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 10. [Summation Of Primes](https://github.com/adamgora/ProjectEuler100/tree/master/src/P010_SummationOfPrimes)
 11. [Largest product in a grid](https://github.com/adamgora/ProjectEuler100/tree/master/src/P011_LargestProductInGrid)
 12. [Highly divisible triangular number](https://github.com/adamgora/ProjectEuler100/tree/master/src/P012_HighlyDivisibleTriangularNumber)
-12. [Large sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P013_LargeSum)
+13. [Large sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P013_LargeSum)
+14. [Largest Collatz Sequence](https://github.com/adamgora/ProjectEuler100/tree/master/src/P014_LargestCollatzSequence)
