@@ -21,6 +21,8 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
   quality-check:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checking Coding Standard
         run: vendor/bin/ecs check tests src  --config easy-coding-standard.yaml
