@@ -12,23 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate
+      - name: Validate composer.json and composer.lock
+        run: composer validate
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-  quality-check:
-    runs-on: ubuntu-latest
+      - name: Check Coding Standard
+          run: vendor/bin/ecs check tests src --config easy-coding-standard.yaml
 
-    steps:
-      - name: Checking Coding Standard
-        run: vendor/bin/ecs check tests src  --config easy-coding-standard.yaml
-
-  unit-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: php-actions/phpunit@v1
+      - name: Unit tests
+          run: vendor/bin/phpunit
