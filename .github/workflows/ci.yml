@@ -24,4 +24,4 @@ jobs:
         run: vendor/bin/ecs check tests src --config easy-coding-standard.yaml
 
       - name: Unit tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit tests
