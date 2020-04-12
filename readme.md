@@ -20,3 +20,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 12. [Highly divisible triangular number](https://github.com/adamgora/ProjectEuler100/tree/master/src/P012_HighlyDivisibleTriangularNumber)
 13. [Large sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P013_LargeSum)
 14. [Largest Collatz Sequence](https://github.com/adamgora/ProjectEuler100/tree/master/src/P014_LargestCollatzSequence)
+15. [Lattice Paths](https://github.com/adamgora/ProjectEuler100/tree/master/src/P015_LatticePaths)
