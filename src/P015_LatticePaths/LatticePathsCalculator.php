@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\P015_LatticePaths;
 
+use App\Utilities\Factorial;
+
 class LatticePathsCalculator
 {
-    public function calculateNumberOfPossiblePaths(int $gridSize): int
+    public function calculateNumberOfPossiblePaths(int $gridSize): float
     {
-        return 0;
+        return Factorial::of($gridSize * 2) / (Factorial::of($gridSize) ** 2);
     }
 }
