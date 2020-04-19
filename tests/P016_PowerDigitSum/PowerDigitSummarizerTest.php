@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\P016_PowerDigitSum\PowerDigitSummarizer;
@@ -30,9 +31,9 @@ class PowerDigitSummarizerTest extends TestCase
     public function cases()
     {
         return [
-            [15,26],
+            [15, 26],
             [128, 166],
-            [1000, 1366]
+            [1000, 1366],
         ];
     }
 }
