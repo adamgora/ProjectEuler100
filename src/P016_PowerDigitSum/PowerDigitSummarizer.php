@@ -8,6 +8,10 @@ class PowerDigitSummarizer
 {
     public function summarize($base, $exponent): int
     {
-        return 0;
+        return array_sum(
+            str_split(
+                sprintf('%.0f', $base ** $exponent)
+            )
+        );
     }
 }
