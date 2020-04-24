@@ -22,21 +22,27 @@ class LetterCounter
     {
         $sum = 0;
 
-        $sum += $this->getOnesRemainder($limit);
+        $sum += $this->sumOnes($limit);
 
-        var_dump($limit, $sum);
         return $sum;
     }
 
-    private function getOnesRemainder(int $limit): int
+    private function sumOnes(int $limit): int
     {
-        $ones = $limit % 10;
+        $occurrences = $limit / 10;
 
-        if (!$ones) {
-            return 0;
+        for ($i = 1; $i <= $occurrences; $i += 10) {
+            $occurrences--;
         }
 
-        return array_sum(array_slice(self::BASE_VALUES, 1, $ones));
+        $wholeOnesSum = array_sum(self::BASE_VALUES) * floor($occurrences);
+        $remainderOnesSum = array_sum(array_slice(self::BASE_VALUES, 1, $limit % 10));
+
+        echo "Limit is $limit \n";
+        echo "Whole ones are ".floor($occurrences)." and their sum is $wholeOnesSum \n";
+        echo "Remainder sum is $remainderOnesSum \n";
+
+        return (int) ($wholeOnesSum + $remainderOnesSum);
 
     }
 }
