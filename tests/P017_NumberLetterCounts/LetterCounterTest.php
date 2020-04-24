@@ -32,8 +32,6 @@ class LetterCounterTest extends TestCase
     {
         return [
             [5, 19],
-            [25, 19],
-            [101, 19],
             [150, 1903],
             [1000, 21124],
         ];
