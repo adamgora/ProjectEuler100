@@ -22,3 +22,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 14. [Largest Collatz Sequence](https://github.com/adamgora/ProjectEuler100/tree/master/src/P014_LargestCollatzSequence)
 15. [Lattice Paths](https://github.com/adamgora/ProjectEuler100/tree/master/src/P015_LatticePaths)
 16. [Power Digit Sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P016_PowerDigitSum)
+17. [Number Letter Counts](https://github.com/adamgora/ProjectEuler100/tree/master/src/P017_NumberLetterCounts)
