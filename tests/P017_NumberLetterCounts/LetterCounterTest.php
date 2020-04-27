@@ -25,7 +25,7 @@ class LetterCounterTest extends TestCase
      */
     public function testCount(int $limit, int $expectedResult)
     {
-        $this->assertEquals($this->counter->countUpTo($limit), $expectedResult);
+        $this->assertEquals($expectedResult, $this->counter->countUpTo($limit));
     }
 
     public function cases()
