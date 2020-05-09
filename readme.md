@@ -23,3 +23,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 15. [Lattice Paths](https://github.com/adamgora/ProjectEuler100/tree/master/src/P015_LatticePaths)
 16. [Power Digit Sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P016_PowerDigitSum)
 17. [Number Letter Counts](https://github.com/adamgora/ProjectEuler100/tree/master/src/P017_NumberLetterCounts)
+18. [Maximum Path Sum I](https://github.com/adamgora/ProjectEuler100/tree/master/src/P018_MaximumPathSum)
