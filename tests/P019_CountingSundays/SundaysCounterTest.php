@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\P019_CountingSundays\SundaysCounter;
@@ -6,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class SundaysCounterTest extends TestCase
 {
-
     private SundaysCounter $sundaysCounter;
 
     protected function setUp(): void
@@ -31,7 +31,7 @@ class SundaysCounterTest extends TestCase
         return [
             [1943, 1946, 6],
             [1995, 2000, 10],
-            [1901, 2000, 171]
+            [1901, 2000, 171],
         ];
     }
 }

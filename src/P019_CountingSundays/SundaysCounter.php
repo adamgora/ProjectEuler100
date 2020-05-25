@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P019_CountingSundays;
@@ -13,7 +14,7 @@ class SundaysCounter
 
         while ($dateFrom < $dateTo) {
             if ('0' === $dateFrom->format('w')) {
-                $count++;
+                ++$count;
             }
             $dateFrom->add(new \DateInterval('P1M'));
         }
