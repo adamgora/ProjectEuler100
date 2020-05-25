@@ -7,6 +7,17 @@ class SundaysCounter
 {
     public function countInRange(int $yearFrom, int $yearTo): int
     {
-        return 0;
+        $dateFrom = (new \DateTime())->setDate($yearFrom, 1, 1);
+        $dateTo = (new \DateTime())->setDate($yearTo, 12, 31);
+        $count = 0;
+
+        while ($dateFrom < $dateTo) {
+            if ('0' === $dateFrom->format('w')) {
+                $count++;
+            }
+            $dateFrom->add(new \DateInterval('P1M'));
+        }
+
+        return $count;
     }
 }
