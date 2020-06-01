@@ -25,3 +25,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 17. [Number Letter Counts](https://github.com/adamgora/ProjectEuler100/tree/master/src/P017_NumberLetterCounts)
 18. [Maximum Path Sum I](https://github.com/adamgora/ProjectEuler100/tree/master/src/P018_MaximumPathSum)
 19. [Counting Sundays](https://github.com/adamgora/ProjectEuler100/tree/master/src/P019_CountingSundays)
+20. [Factorial Digit Sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P020_FactorialDigitSum)
