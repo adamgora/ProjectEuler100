@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\P020_FactorialDigitSum\FactorialSumCalculator;
@@ -28,7 +29,7 @@ class FactorialSumCalculatorTest extends TestCase
     {
         return [
             [10, 27],
-            [25,72],
+            [25, 72],
             [50, 216],
             [75, 432],
             [100, 648],
