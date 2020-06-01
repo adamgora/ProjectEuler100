@@ -16,5 +16,7 @@
             "email": "adamgora@icloud.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-bcmath": "*"
+    }
 }
