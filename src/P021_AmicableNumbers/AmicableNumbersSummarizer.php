@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P021_AmicableNumbers;
@@ -10,7 +11,6 @@ class AmicableNumbersSummarizer
         $amicableNumbers = [];
 
         for ($i = $limit; $i > 1; --$i) {
-
             $divisors = $this->getDivisors($i);
             $sumOfDivisors = array_sum($divisors);
 
@@ -35,7 +35,7 @@ class AmicableNumbersSummarizer
         $divisors = [];
         $limit = sqrt($number);
 
-        for ($i = 1; $i < $limit; $i++) {
+        for ($i = 1; $i < $limit; ++$i) {
             if ($number % $i === 0) {
                 $divisors[] = $i;
                 $divisors[] = $number / $i;
@@ -43,6 +43,7 @@ class AmicableNumbersSummarizer
         }
         sort($divisors);
         array_pop($divisors);
+
         return $divisors;
     }
 }
