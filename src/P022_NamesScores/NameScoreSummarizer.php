@@ -7,6 +7,7 @@ class NameScoreSummarizer
 {
     public function getSum(array $arr): int
     {
+        sort($arr);
         array_walk($arr, static function (&$item, $index) {
             $item = ($index + 1) * array_sum(
                     array_map(static function ($letter) {
