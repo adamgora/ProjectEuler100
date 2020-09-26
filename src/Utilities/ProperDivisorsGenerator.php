@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Utilities;
@@ -11,8 +12,7 @@ class ProperDivisorsGenerator
         $limit = sqrt($number);
 
         for ($i = 2; $i <= $limit; ++$i) {
-
-            if ($number % $i === 0 ) {
+            if ($number % $i === 0) {
                 $result[] = $i;
                 $result[] = $number / $i;
             }
@@ -21,6 +21,7 @@ class ProperDivisorsGenerator
         $result = array_values(array_unique($result));
 
         sort($result);
+
         return $result;
     }
 }
