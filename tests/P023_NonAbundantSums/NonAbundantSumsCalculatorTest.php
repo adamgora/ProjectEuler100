@@ -32,7 +32,6 @@ class NonAbundantSumsCalculatorTest extends TestCase
             //[15000, 4039939],
             //[20000, 4159710],
             //[28123, 4179871],
-
         ];
     }
 }

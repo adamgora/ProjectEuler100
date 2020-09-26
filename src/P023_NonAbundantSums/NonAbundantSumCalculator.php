@@ -18,7 +18,7 @@ class NonAbundantSumCalculator
         for ($i = 0; $i < count($abundantNumbers) - 1; ++$i) {
             for ($j = 0; $j < count($abundantNumbers) - 1; ++$j) {
                 $sum = $abundantNumbers[$i] + $abundantNumbers[$j];
-                if($sum > $limit) {
+                if ($sum > $limit) {
                     break;
                 }
 
@@ -26,7 +26,7 @@ class NonAbundantSumCalculator
             }
         }
 
-        $filtered = array_filter($result, fn($item) => $item);
+        $filtered = array_filter($result, fn ($item) => $item);
 
         return array_sum(array_keys($filtered));
     }
@@ -35,20 +35,24 @@ class NonAbundantSumCalculator
     {
         $result = array_fill(1, $limit, true);
 
-        for ($i = 2, $iMax = $limit; $i < $iMax; ++$i) {
-            if ($result[$i]) {
-                $properDivisors = ProperDivisorsGenerator::generate($i);
-                if (array_sum($properDivisors) > $i) {
-                    // mark multiplies as false
-                    for ($j = $i; $j <= $limit; $j += $j) {
-                        $result[$j] = false;
-                    }
+        for ($i = 2; $i < $limit; ++$i) {
+            if ($result[$i] && $this->numberIsAbundant($i)) {
+                // mark multiplies as false
+                for ($j = $i; $j <= $limit; $j += $j) {
+                    $result[$j] = false;
                 }
             }
         }
 
         return array_keys(
-            array_filter($result, fn(bool $element) => !$element)
+            array_filter($result, fn (bool $element) => !$element)
         );
+    }
+
+    private function numberIsAbundant(int $number): bool
+    {
+        $properDivisors = ProperDivisorsGenerator::generate($number);
+
+        return array_sum($properDivisors) > $number;
     }
 }
