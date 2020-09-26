@@ -28,3 +28,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 20. [Factorial Digit Sum](https://github.com/adamgora/ProjectEuler100/tree/master/src/P020_FactorialDigitSum)
 21. [Amicable Numbers](https://github.com/adamgora/ProjectEuler100/tree/master/src/P021_AmicableNumbers)
 22. [Names Scores](https://github.com/adamgora/ProjectEuler100/tree/master/src/P022_NamesScores)
+23. [Non-Abundant Sums](https://github.com/adamgora/ProjectEuler100/tree/master/src/P023_NonAbundantSums)
