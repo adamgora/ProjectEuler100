@@ -6,52 +6,46 @@ namespace App\P024_LexicographicPermutations;
 
 class PermutationsGenerator
 {
-    private array $permutations;
-
-    public function __construct()
-    {
-        $this->permutations = [];
-    }
-
-    public function generate(array $elements): void
-    {
-        $count = count($elements);
-
-        $this->generatePermutations($count, $elements);
-        sort($this->permutations);
-    }
+    public const NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     public function getNthPermutation(int $index)
     {
-        if (isset($this->permutations[$index])) {
-            return (int)implode('', $this->permutations[$index]);
-        }
+        $length = count(self::NUMBERS);
+        $permNum = '';
+        $remain = $index;
+        $numbers = self::NUMBERS;
 
-        return null;
-    }
-
-    private function generatePermutations(int $count, array &$elements): void
-    {
-        if ($count === 1) {
-            $this->permutations[] = $elements;
-        } else {
-            for ($i = 0; $i < $count; ++$i) {
-                $this->generatePermutations($count - 1, $elements);
-
-                if ($count % 2 === 0) {
-                    $this->swapElements($elements, $i, $count - 1);
-                } else {
-                    $this->swapElements($elements, 0, $count - 1);
-                }
+        for($i = 1; $i <= $length; ++$i) {
+            $j = (int) ($remain / $this->getFactorial($length - $i));
+            $remain %= $this->getFactorial($length - $i);
+            $permNum .= $numbers[$j];
+            unset($numbers[$j]);
+            $numbers = array_values($numbers);
+            if($remain === 0) {
+                break;
             }
         }
+
+        foreach ($numbers as $iValue) {
+            $permNum .= $iValue;
+        }
+
+        return $permNum;
+
     }
 
-    private function swapElements(array &$elements, int $from, int $to): void
+    private function getFactorial(int $i): int
     {
-        $temp = $elements[$to];
+        if($i < 0) {
+            return 0;
+        }
 
-        $elements[$to] = $elements[$from];
-        $elements[$from] = $temp;
+        $p = 1;
+
+        for($j = 1; $j <= $i; ++$j) {
+            $p *= $j;
+        }
+
+        return $p;
     }
 }
