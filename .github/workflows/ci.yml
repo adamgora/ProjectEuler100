@@ -27,7 +27,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Check Coding Standard
-        run: vendor/bin/ecs check tests src --config easy-coding-standard.yaml
+        run: vendor/bin/ecs check tests src
 
       - name: Unit tests
         run: vendor/bin/phpunit tests
