@@ -9,6 +9,7 @@ class PrimesGenerator
     private const BASE_PRIME = 2;
 
     private array $numbers = [];
+
     private int $max;
 
     public function generate(int $upTo): array

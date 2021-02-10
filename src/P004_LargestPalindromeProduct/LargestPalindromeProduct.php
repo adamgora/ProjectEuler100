@@ -7,7 +7,9 @@ namespace App\P004_LargestPalindromeProduct;
 class LargestPalindromeProduct
 {
     private int $min;
+
     private int $max;
+
     private array $palindromeNumbers;
 
     /**

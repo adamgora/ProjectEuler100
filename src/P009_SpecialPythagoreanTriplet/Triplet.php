@@ -10,10 +10,12 @@ class Triplet
      * @var int
      */
     private int $a;
+
     /**
      * @var int
      */
     private int $b;
+
     /**
      * @var int
      */
