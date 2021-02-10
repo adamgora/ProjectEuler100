@@ -146,7 +146,23 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer::class);
     $services->set(PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer::class);
     $services->set(PhpCsFixer\Fixer\Whitespace\LineEndingFixer::class);
-    $services->set(PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer::class);
+    $services->set(PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer::class)
+        ->call('configure', [[
+            'tokens' => [
+                'break',
+                'case',
+                'continue',
+                'curly_brace_block',
+                'default',
+                'extra',
+                'parenthesis_brace_block',
+                'return',
+                'square_brace_block',
+                'switch',
+                'throw',
+                'use'
+            ]
+        ]]);
     $services->set(PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer::class);
     $services->set(PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer::class);
     $services->set(PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer::class);
@@ -159,16 +175,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/tests',
     ]);
 
-    $parameters->set(Option::SETS, [
-        // run and fix, one by one
-        // SetList::SPACES,
-        // SetList::ARRAY,
-        // SetList::DOCBLOCK,
-        // SetList::NAMESPACES,
-        // SetList::CONTROL_STRUCTURES,
-        // SetList::CLEAN_CODE,
-        // SetList::PSR_12,
-        // SetList::PHP_70,
-        // SetList::PHP_71,
-    ]);
+    $parameters->set('skip', [PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer::class => ['*Spec.php']]);
 };

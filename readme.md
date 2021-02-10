@@ -30,3 +30,4 @@ For each challenge I will use test suite prepared by [freeCodeCamp](https://www.
 22. [Names Scores](https://github.com/adamgora/ProjectEuler100/tree/master/src/P022_NamesScores)
 23. [Non-Abundant Sums](https://github.com/adamgora/ProjectEuler100/tree/master/src/P023_NonAbundantSums)
 24. [Lexicographic permutations](https://github.com/adamgora/ProjectEuler100/tree/master/src/P024_LexicographicPermutations)
+25. [1000-digit Fibonacci number](https://github.com/adamgora/ProjectEuler100/tree/master/src/P025_1000DigitFibonacciNumber)
