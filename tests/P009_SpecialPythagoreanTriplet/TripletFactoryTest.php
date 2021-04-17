@@ -20,10 +20,8 @@ class TripletFactoryTest extends TestCase
     }
 
     /**
-     * @param int $sumOfTriplets
      * @param $expectedProduct
      * @dataProvider cases
-     *
      * @throws TripletNotFoundException
      */
     public function testMake(int $sumOfTriplets, $expectedProduct): void

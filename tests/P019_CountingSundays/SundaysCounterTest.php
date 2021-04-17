@@ -16,9 +16,6 @@ class SundaysCounterTest extends TestCase
     }
 
     /**
-     * @param int $yearFrom
-     * @param int $yearTo
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCountInRange(int $yearFrom, int $yearTo, int $expectedResult): void

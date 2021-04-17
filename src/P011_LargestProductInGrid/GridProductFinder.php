@@ -14,12 +14,6 @@ class GridProductFinder
 
     private array $grid;
 
-    /**
-     * @param array $grid
-     * @param int $numbers
-     *
-     * @return int
-     */
     public function find(array $grid, int $numbers): int
     {
         $maxProduct = 0;
@@ -42,12 +36,6 @@ class GridProductFinder
         return $maxProduct;
     }
 
-    /**
-     * @param int $rowIndex
-     * @param int $colIndex
-     *
-     * @return int
-     */
     private function getMaxProductInAllDirections(int $rowIndex, int $colIndex): int
     {
         return max([
@@ -58,12 +46,6 @@ class GridProductFinder
         ]);
     }
 
-    /**
-     * @param int $rowIndex
-     * @param int $colIndex
-     *
-     * @return int
-     */
     private function getProductInRow(int $rowIndex, int $colIndex): int
     {
         if ($this->cannotSearchInRow($colIndex)) {
@@ -73,12 +55,6 @@ class GridProductFinder
         return array_product(array_slice($this->grid[$rowIndex], $colIndex, $this->offset));
     }
 
-    /**
-     * @param int $rowIndex
-     * @param int $colIndex
-     *
-     * @return int
-     */
     private function getProductInColumn(int $rowIndex, int $colIndex): int
     {
         if ($this->cannotSearchInColumn($rowIndex)) {
@@ -93,8 +69,6 @@ class GridProductFinder
     /**
      * @param $rowIndex
      * @param $colIndex
-     *
-     * @return int
      */
     private function getProductInRightDiagonal($rowIndex, $colIndex): int
     {
@@ -114,8 +88,6 @@ class GridProductFinder
     /**
      * @param $rowIndex
      * @param $colIndex
-     *
-     * @return int
      */
     private function getProductInLeftDiagonal($rowIndex, $colIndex): int
     {
@@ -132,21 +104,11 @@ class GridProductFinder
         return $product;
     }
 
-    /**
-     * @param int $colIndex
-     *
-     * @return bool
-     */
     private function cannotSearchInRow(int $colIndex): bool
     {
         return $colIndex + $this->offset > $this->rowLength;
     }
 
-    /**
-     * @param int $rowIndex
-     *
-     * @return bool
-     */
     private function cannotSearchInColumn(int $rowIndex): bool
     {
         return $rowIndex + $this->offset > $this->rowLength;
@@ -155,8 +117,6 @@ class GridProductFinder
     /**
      * @param $rowIndex
      * @param $colIndex
-     *
-     * @return bool
      */
     private function cannotSearchInRightDiagonal($rowIndex, $colIndex): bool
     {
@@ -166,8 +126,6 @@ class GridProductFinder
     /**
      * @param $rowIndex
      * @param $colIndex
-     *
-     * @return bool
      */
     private function cannotSearchInLeftDiagonal($rowIndex, $colIndex): bool
     {

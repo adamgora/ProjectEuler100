@@ -16,8 +16,6 @@ class NumberSearchTest extends TestCase
     }
 
     /**
-     * @param int $divisorsCount
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testFindWithNumberOfDivisors(int $divisorsCount, int $expectedResult): void

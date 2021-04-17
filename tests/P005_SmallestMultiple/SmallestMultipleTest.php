@@ -17,8 +17,6 @@ class SmallestMultipleTest extends TestCase
     }
 
     /**
-     * @param int $testNumber
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCalculate(int $testNumber, int $expectedResult): void

@@ -16,8 +16,6 @@ class CollatzSequenceCalculatorTest extends TestCase
     }
 
     /**
-     * @param int $limit
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCalculate(int $limit, int $expectedResult): void

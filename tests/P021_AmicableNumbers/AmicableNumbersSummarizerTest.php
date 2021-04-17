@@ -16,8 +16,6 @@ class AmicableNumbersSummarizerTest extends TestCase
     }
 
     /**
-     * @param int $limit
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testSummarize(int $limit, int $expectedResult)

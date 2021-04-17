@@ -16,8 +16,6 @@ class SumCalculatorTest extends TestCase
     }
 
     /** @dataProvider cases
-     * @param int $max
-     * @param int $result
      */
     public function testSum(int $max, int $result): void
     {

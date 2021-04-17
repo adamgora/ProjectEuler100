@@ -21,8 +21,6 @@ class LatticePathsCalculatorTest extends TestCase
     }
 
     /**
-     * @param int $gridSize
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCalculateNumberOfPossiblePaths(int $gridSize, int $expectedResult): void
