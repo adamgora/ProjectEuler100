@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\P026_ReciprocalCycles\ReciprocalCyclesCalculator;
@@ -31,7 +32,7 @@ class ReciprocalCyclesCalculatorTest extends TestCase
             [700, 659],
             [800, 743],
             [900, 887],
-            [1000, 983]
+            [1000, 983],
         ];
     }
 }
