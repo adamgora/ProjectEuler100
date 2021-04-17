@@ -20,8 +20,6 @@ class NthPrimeCalculator
 
     /**
      * Approximate nth prime number is calculated using Prime Number Theorem.
-     *
-     *
      */
     private function setMaxApproximate(int $num): int
     {
