@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\P026_ReciprocalCycles;
@@ -14,9 +15,9 @@ class ReciprocalCyclesCalculator
         $largestNumberFound = 2;
         $largestCycleFound = 0;
 
-        for($i = 2; $i < $limit; ++$i) {
+        for ($i = 2; $i < $limit; ++$i) {
             $factors = PrimeFactorizer::factorize($i);
-            if($this->numberHasRepeatingDecimal($factors)) {
+            if ($this->numberHasRepeatingDecimal($factors)) {
                 $rest = $this->filterAndMultiplyFactors($factors);
 
                 $howManyDigits = strlen((string) $rest);
@@ -26,7 +27,7 @@ class ReciprocalCyclesCalculator
                     ++$howManyDigits;
                     $closestNineMultiply = $this->getBaseDividerMultiplier($howManyDigits);
                 }
-                if($howManyDigits > $largestCycleFound) {
+                if ($howManyDigits > $largestCycleFound) {
                     $largestCycleFound = $howManyDigits;
                     $largestNumberFound = $i;
                 }
@@ -38,7 +39,7 @@ class ReciprocalCyclesCalculator
 
     private function numberHasRepeatingDecimal(array $factors): bool
     {
-        return (bool)count(array_diff($factors, [2, 5]));
+        return (bool) count(array_diff($factors, [2, 5]));
     }
 
     private function getBaseDividerMultiplier(int $howManyDigits): string
