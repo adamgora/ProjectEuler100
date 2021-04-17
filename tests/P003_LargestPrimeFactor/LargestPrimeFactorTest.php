@@ -19,8 +19,6 @@ class LargestPrimeFactorTest extends TestCase
     }
 
     /**
-     * @param int $testNumber
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testGet(int $testNumber, int $expectedResult): void

@@ -16,8 +16,6 @@ class FactorialSumCalculatorTest extends TestCase
     }
 
     /**
-     * @param int $number
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCalculate(int $number, int $expectedResult)

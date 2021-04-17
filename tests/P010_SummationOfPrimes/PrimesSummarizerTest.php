@@ -19,8 +19,6 @@ class PrimesSummarizerTest extends TestCase
     }
 
     /**
-     * @param int $upTo
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testSummarize(int $upTo, int $expectedResult)

@@ -25,9 +25,6 @@ class SmallestMultiple
         return $this->multiplyMaxFactorizations();
     }
 
-    /**
-     * @return int
-     */
     private function multiplyMaxFactorizations(): int
     {
         $result = 1;
@@ -38,25 +35,16 @@ class SmallestMultiple
         return $result;
     }
 
-    /**
-     * @return array
-     */
     public function getMaxFactorizations(): array
     {
         return $this->maxFactorizations;
     }
 
-    /**
-     * @param array $maxFactorizations
-     */
     public function setMaxFactorizations(array $maxFactorizations): void
     {
         $this->maxFactorizations = $maxFactorizations;
     }
 
-    /**
-     * @param array $factorsAndExponents
-     */
     private function updateMaxFactorizations(array $factorsAndExponents): void
     {
         $maxFactorizations = $this->getMaxFactorizations();

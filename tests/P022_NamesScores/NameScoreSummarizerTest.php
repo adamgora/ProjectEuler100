@@ -16,8 +16,6 @@ class NameScoreSummarizerTest extends TestCase
     }
 
     /**
-     * @param array $testArray
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testSummarize(array $testArray, int $expectedResult): void

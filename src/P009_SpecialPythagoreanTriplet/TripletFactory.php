@@ -9,9 +9,7 @@ use App\P009_SpecialPythagoreanTriplet\Exceptions\TripletNotFoundException;
 class TripletFactory
 {
     /**
-     * @param int $sumOfTriplets
      *
-     * @return Triplet
      *
      * @throws TripletNotFoundException
      */

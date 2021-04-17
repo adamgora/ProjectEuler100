@@ -16,8 +16,6 @@ class PermutationsGeneratorTest extends TestCase
     }
 
     /**
-     * @param int $index
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testGetSum(int $index, int $expectedResult): void

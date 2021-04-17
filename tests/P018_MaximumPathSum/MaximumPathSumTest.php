@@ -16,8 +16,6 @@ class MaximumPathSumTest extends TestCase
     }
 
     /**
-     * @param array $triangle
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCount(array $triangle, int $expectedResult)

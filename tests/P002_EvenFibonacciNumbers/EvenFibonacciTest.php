@@ -17,8 +17,6 @@ class EvenFibonacciTest extends TestCase
     }
 
     /**
-     * @param int $termsCount
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCalculateSum(int $termsCount, int $expectedResult): void

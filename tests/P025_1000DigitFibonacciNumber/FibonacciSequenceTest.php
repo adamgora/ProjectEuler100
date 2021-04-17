@@ -16,8 +16,6 @@ class FibonacciSequenceTest extends TestCase
     }
 
     /**
-     * @param int $numOfDigits
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testGetIndexOfItemWithDigits(int $numOfDigits, int $expectedResult): void

@@ -16,8 +16,6 @@ class GridProductFinderTest extends TestCase
     }
 
     /**
-     * @param array $grid
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testFind(array $grid, int $expectedResult)

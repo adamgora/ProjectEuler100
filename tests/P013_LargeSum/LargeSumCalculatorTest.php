@@ -16,8 +16,6 @@ class LargeSumCalculatorTest extends TestCase
     }
 
     /**
-     * @param array $numbers
-     * @param string $expectedResult
      * @dataProvider cases
      */
     public function testSum(array $numbers, string $expectedResult): void

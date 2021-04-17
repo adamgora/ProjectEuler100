@@ -14,8 +14,6 @@ class LargestPalindromeProduct
 
     /**
      * LargestPalindromeProduct constructor.
-     *
-     * @param int $howManyDigitsInFactors
      */
     public function __construct(int $howManyDigitsInFactors)
     {
@@ -24,9 +22,6 @@ class LargestPalindromeProduct
         $this->palindromeNumbers = $this->getPalindromeNumbers();
     }
 
-    /**
-     * @return int
-     */
     public function calculate(): int
     {
         for ($i = count($this->palindromeNumbers) - 1; $i > 0; --$i) {
@@ -39,9 +34,6 @@ class LargestPalindromeProduct
         return 0;
     }
 
-    /**
-     * @return array
-     */
     private function getPalindromeNumbers(): array
     {
         return array_map(static function (int $item) {
@@ -51,11 +43,6 @@ class LargestPalindromeProduct
         }, range($this->min, $this->max, 1));
     }
 
-    /**
-     * @param int $palindromeNumber
-     *
-     * @return bool
-     */
     private function checkPalindromeUsingDivision(int $palindromeNumber): bool
     {
         for ($i = $this->max; $i > $this->min; --$i) {

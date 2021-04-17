@@ -43,9 +43,6 @@ class PrimesGenerator
         $this->filterNumbers();
     }
 
-    /**
-     * @param int $prime
-     */
     private function setMultipliesOfPrimeAsFalse(int $prime): void
     {
         for ($i = $prime ** 2, $j = 1; $i <= $this->max; $i = $prime ** 2 + $j * $prime, $j++) {

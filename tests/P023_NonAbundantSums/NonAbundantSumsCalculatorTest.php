@@ -16,8 +16,6 @@ class NonAbundantSumsCalculatorTest extends TestCase
     }
 
     /**
-     * @param int $limit
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testGetSum(int $limit, int $expectedResult): void

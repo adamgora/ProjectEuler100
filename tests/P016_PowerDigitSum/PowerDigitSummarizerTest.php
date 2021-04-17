@@ -19,8 +19,6 @@ class PowerDigitSummarizerTest extends TestCase
     }
 
     /**
-     * @param int $exponent
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testSummarize(int $exponent, int $expectedResult)

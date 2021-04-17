@@ -19,8 +19,6 @@ class LetterCounterTest extends TestCase
     }
 
     /**
-     * @param int $limit
-     * @param int $expectedResult
      * @dataProvider cases
      */
     public function testCount(int $limit, int $expectedResult)
