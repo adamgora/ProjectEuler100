@@ -9,8 +9,6 @@ use App\P009_SpecialPythagoreanTriplet\Exceptions\TripletNotFoundException;
 class TripletFactory
 {
     /**
-     *
-     *
      * @throws TripletNotFoundException
      */
     public function make(int $sumOfTriplets): Triplet
